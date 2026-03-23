@@ -1,7 +1,7 @@
 ---
 title: "ShareStats"
 subtitle: "TLC-FMG Lunch Seminar"
-date: today
+date: 21 April 2026
 date-format: "D MMMM YYYY"
 format:
   revealjs:
@@ -53,7 +53,7 @@ ShareStats is an **open-source item bank** for statistics education.
 
 - Freely available questions (open licence)
 - Items in multiple formats
-- Compatible with major LMS platforms
+- Compatible with ANS/Canvas platforms
 - Powered by the R `exams` package
 :::
 ::::
@@ -62,23 +62,31 @@ ShareStats is an **open-source item bank** for statistics education.
 
 Writing good statistics questions is **time-consuming**.
 
-> ShareStats lets educators focus on teaching, not question writing.
+> ShareStats helps educators with question creation.
 
 - Peer-reviewed items written by statistics educators
 - Covers common introductory statistics topics
 - Items are tagged by topic, difficulty, and format
 
-## What's in the bank?
+## What's in the bank? {.smaller}
 
 Topics covered include:
 
-| Category | Examples |
+::: {style="font-size: 0.7em;"}
+
+| Category | Example |
 |---|---|
-| Descriptive statistics | Mean, median, standard deviation |
-| Probability | Distributions, combinatorics |
-| Inference | $t$-tests, ANOVA, $\chi^2$ |
-| Regression | Simple & multiple linear regression |
-| Data literacy | Reading tables, interpreting output |
+| Measurement level | Nominal vs ordinal vs interval (e.g., survey gender = nominal) |
+| Inferential statistics | Two-sample t-test to compare group means |
+| Probability | Compute P(X ≤ 2) for X ~ Poisson(λ=1.5) |
+| Assumptions | Check normality of residuals in linear regression |
+| Descriptive statistics | Mean, median, and standard deviation of scores |
+| Variable type | Continuous (age), discrete (count), categorical (gender) |
+| Distributions | Normal, binomial, Poisson (e.g., heights ≈ Normal) |
+| Factor analysis | Exploratory factor analysis on questionnaire items |
+| Reliability | Cronbach’s alpha for internal consistency |
+
+:::
 
 ## Item formats
 
