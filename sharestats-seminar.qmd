@@ -1,0 +1,284 @@
+---
+title: "ShareStats"
+subtitle: "TLC-FMG Lunch Seminar"
+date: today
+date-format: "D MMMM YYYY"
+format:
+  revealjs:
+    brand: _brand.yml
+    logo: images/logoWT.png
+    footer: "[sharestats.nl](https://www.sharestats.nl)"
+    slide-number: true
+    progress: true
+    theme: default
+    transition: slide
+    background-transition: fade
+    code-line-numbers: false
+    highlight-style: github
+---
+
+# Welcome {background-color="#375E94"}
+
+## About this seminar
+
+**Lunch Seminar — ShareStats**
+
+This session covers:
+
+1. 📚 What ShareStats is and why it exists
+2. 🔍 How to search and upload items to **ANS**
+3. 💻 Hands-on practice — your turn!
+
+::: {.callout-tip}
+This is a hands-on workshop — please have your laptop ready.
+:::
+
+# Part 1 {background-color="#375E94"}
+## Introduction to ShareStats
+
+## What is ShareStats?
+
+ShareStats is an **open-source item bank** for statistics education.
+
+:::: {.columns}
+::: {.column width="50%"}
+**Goals**
+
+- Lower the barrier to writing good statistics exams
+- Promote reuse of high-quality questions
+- Support both formative and summative assessment
+:::
+::: {.column width="50%"}
+**Key features**
+
+- Freely available questions (open licence)
+- Items in multiple formats
+- Compatible with major LMS platforms
+- Powered by the R `exams` package
+:::
+::::
+
+## Why an item bank?
+
+Writing good statistics questions is **time-consuming**.
+
+> ShareStats lets educators focus on teaching, not question writing.
+
+- Peer-reviewed items written by statistics educators
+- Covers common introductory statistics topics
+- Items are tagged by topic, difficulty, and format
+
+## What's in the bank?
+
+Topics covered include:
+
+| Category | Examples |
+|---|---|
+| Descriptive statistics | Mean, median, standard deviation |
+| Probability | Distributions, combinatorics |
+| Inference | $t$-tests, ANOVA, $\chi^2$ |
+| Regression | Simple & multiple linear regression |
+| Data literacy | Reading tables, interpreting output |
+
+## Item formats
+
+ShareStats items are written in **R/exams** format, supporting:
+
+- **Single-choice** (schoice)
+- **Multiple-choice** (mchoice)
+- **Numeric answer** (num)
+- **Open answer** (string)
+- **Cloze** (combination of the above)
+
+Each item is **randomisable** — different numbers, datasets, or scenarios per student.
+
+# Part 2 {background-color="#375E94"}
+## Searching & Uploading to ANS
+
+## Finding items on ShareStats
+
+::: {.incremental}
+1. Go to **[sharestats.nl](https://www.sharestats.nl)**
+2. Browse by **topic** or use the **search** function
+3. Preview the item — question text, answer options, solution
+4. Note the **item ID** or download the `.Rmd` file directly
+:::
+
+## Downloading items with R exams
+
+Install and load the package:
+
+```r
+install.packages("exams")
+library(exams)
+```
+
+Download an item from the ShareStats GitHub repository:
+
+```r
+# Example: download a t-test item
+url <- "https://raw.githubusercontent.com/ShareStats/ShareStats/main/items/ttest_onesample.Rmd"
+download.file(url, destfile = "ttest_onesample.Rmd")
+```
+
+## Compiling a set of items
+
+Combine multiple items and render to a PDF exam or QTI (for ANS/Canvas):
+
+```r
+library(exams)
+
+# List the items you want
+my_items <- c(
+  "ttest_onesample.Rmd",
+  "descriptives_mean.Rmd",
+  "regression_interpret.Rmd"
+)
+
+# Render to QTI 2.1 format (for ANS)
+exams2qti21(
+  file      = my_items,
+  n         = 1,          # number of exam versions
+  dir       = "output",
+  name      = "stats_quiz"
+)
+```
+
+## Uploading to ANS
+
+Once you have the `.zip` QTI file:
+
+::: {.incremental}
+1. Log in to **ANS** ([ans.app](https://ans.app))
+2. Open your course → **Item bank** → **Import**
+3. Choose **QTI 2.1** and upload the `.zip`
+4. ANS parses the items — preview and assign to an assignment
+5. Set feedback, scoring, and release settings as usual
+:::
+
+::: {.callout-note}
+The same workflow applies to **Canvas** using `exams2canvas()` and QTI 1.2.
+:::
+
+## Uploading to Canvas
+
+For Canvas, export to QTI 1.2 instead:
+
+```r
+exams2canvas(
+  file  = my_items,
+  n     = 1,
+  dir   = "output",
+  name  = "stats_quiz"
+)
+```
+
+Then import via **Canvas → Settings → Import Course Content → QTI**.
+
+# Part 3 {background-color="#375E94"}
+## Your Turn — Hands-On Practice
+
+## Your turn! {.center}
+
+::: {.r-fit-text}
+Let's try it together
+:::
+
+## Exercise 1 — Browse & Pick
+
+::: {.incremental}
+1. Open **[sharestats.nl](https://www.sharestats.nl)** on your laptop
+2. Find **two items** on a topic relevant to your course
+3. Download the `.Rmd` files to a local folder
+:::
+
+**Tip:** look at the item source — all items are plain R Markdown files.
+
+## Exercise 2 — Compile a Mini Exam
+
+With the items you downloaded, compile a QTI file:
+
+```r
+library(exams)
+
+my_items <- c("item1.Rmd", "item2.Rmd")  # your downloaded items
+
+exams2qti21(
+  file = my_items,
+  n    = 1,
+  dir  = "output",
+  name = "my_quiz"
+)
+```
+
+Check the `output/` folder — you should see a `.zip` file ready to upload.
+
+## Exercise 3 — Upload to ANS or Canvas
+
+::: {.panel-tabset}
+
+### ANS
+1. Log in to ANS → your course
+2. **Item bank → Import → QTI 2.1**
+3. Upload the `.zip` from `output/`
+4. Preview one item
+
+### Canvas
+1. Log in to Canvas → your course
+2. **Settings → Import Course Content**
+3. Select **QTI** → upload the `.zip`
+4. Find the items in your **Question Banks**
+
+:::
+
+## Common questions
+
+| Issue | Solution |
+|---|---|
+| Item doesn't render | Check R version ≥ 4.0 and `tinytex` installed |
+| QTI import fails | Ensure you're using QTI **2.1** for ANS |
+| Images missing | Use `exams2qti21(..., edir = "images")` |
+| Reproducibility | Set `set.seed()` before `exams2qti21()` |
+
+# Wrap-up {background-color="#375E94"}
+
+## Summary
+
+::: {.incremental}
+- **ShareStats** is a free, open-source item bank for statistics education
+- Items are written in **R/exams** format — randomisable and reusable
+- Export to **QTI** for direct use in ANS and Canvas
+- The community grows when **you contribute items** back!
+:::
+
+## Get involved
+
+:::: {.columns}
+::: {.column width="60%"}
+**Use ShareStats**
+
+- [sharestats.nl](https://www.sharestats.nl)
+- GitHub repository
+
+**Contribute**
+
+- Write items in R/exams format
+- Submit a pull request
+- Report issues or suggestions
+:::
+::: {.column width="40%"}
+**R exams resources**
+
+- [r-exams.org](https://www.r-exams.org)
+- Vignettes on CRAN
+- Active mailing list
+:::
+::::
+
+## Thank you! {.center background-color="#375E94"}
+
+::: {.r-fit-text}
+Questions?
+:::
+
+[sharestats.nl](https://www.sharestats.nl) · [r-exams.org](https://www.r-exams.org)

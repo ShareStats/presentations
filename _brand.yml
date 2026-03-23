@@ -1,0 +1,52 @@
+meta:
+  name: ShareStats
+  link: https://www.sharestats.nl
+
+logo:
+  images:
+    logo-white: images/logoWT.png
+  small: logo-white
+  medium: logo-white
+
+color:
+  palette:
+    blue: "#375E94"
+    navy: "#212529"
+    white: "#FFFFFF"
+    light-gray: "#F8F9FA"
+
+  primary: blue
+  secondary: navy
+  foreground: navy
+  background: white
+  light: light-gray
+  dark: navy
+
+typography:
+  fonts:
+    - family: Source Sans Pro
+      source: google
+
+  base:
+    family: Source Sans Pro
+    # weight: 100
+    # line-height: 1.5
+
+  headings:
+    family: Source Sans Pro
+    # weight: 200
+    color: primary
+
+  monospace:
+    family: "SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    # size: 0.7em
+
+  link:
+    color: primary
+    decoration: none
+
+defaults:
+  bootstrap:
+    navbar-bg: "#212529"
+    navbar-fg: "#FFFFFF"
+    navbar-hl: "#FFFFFF"
