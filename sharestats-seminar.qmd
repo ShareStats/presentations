@@ -106,9 +106,9 @@ ShareStats items are written in **R/exams** format, supporting:
 
 ::: {.incremental}
 1. Go to **[sharestats.nl](https://www.sharestats.nl)**
-2. Browse by **topic** or use the **search** function
+2. Browse by **[taxonomy](https://www.sharestats.nl/taxonomy/taxonomy_tree.html)** or use the **[search](https://www.sharestats.nl/items-df.html)** function
 3. Preview the item — question text, answer options, solution
-4. Note the **item ID** or download the `.Rmd` file directly
+4. Download the ANS or canvas package or the raw R Markdown zip file.
 :::
 
 ## Downloading items with R exams
