@@ -33,14 +33,13 @@ This session covers:
 This is a hands-on workshop — please have your laptop ready.
 :::
 
-# Part 1 {background-color="#375E94"}
-## Introduction to ShareStats
+# Introduction to ShareStats {background-color="#375E94"}
 
 ## What is ShareStats?
 
 ShareStats is an **open-source item bank** for statistics education.
 
-:::: {.columns}
+:::: {.columns style="font-size: 0.8em;"}
 ::: {.column width="50%"}
 **Goals**
 
@@ -98,9 +97,7 @@ ShareStats items are written in **R/exams** format, supporting:
 - **Open answer** (string)
 - **Cloze** (combination of the above)
 
-
-# Part 2 {background-color="#375E94"}
-## Searching & Uploading to ANS
+# Searching & Uploading {background-color="#375E94"}
 
 ## Finding items on ShareStats
 
@@ -111,79 +108,64 @@ ShareStats items are written in **R/exams** format, supporting:
 4. Download the ANS or canvas package or the raw R Markdown zip file.
 :::
 
-## Downloading items with R exams
+How to search: [Sharestats instructions](https://www.sharestats.nl/instructions/searching-itembank-upload-to-testvision.html)
 
-Install and load the package:
+## Downloading packages for ANS/Canvas
 
-```r
-install.packages("exams")
-library(exams)
-```
+For direct use of individual itemsin ANS or Canvas, download the pre-compiled packages:
 
-Download an item from the ShareStats GitHub repository:
+* Instructions for ANS: [ShareStats ANS instructions](https://www.sharestats.nl/instructions/ans.html )
+* Instructions for Canvas: [ShareStats Canvas instructions](https://www.sharestats.nl/instructions/canvas.html)
 
-```r
-# Example: download a t-test item
-url <- "https://raw.githubusercontent.com/ShareStats/ShareStats/main/items/ttest_onesample.Rmd"
-download.file(url, destfile = "ttest_onesample.Rmd")
-```
+## Downloading items for R exams
 
-## Compiling a set of items
+The raw R Markdown files are available for download as a `.zip` file. This allows you to:
 
-Combine multiple items and render to a PDF exam or QTI (for ANS/Canvas):
+* Collect multiple items
+* Edit or customize items in R/exams format
+* Compile your own packages for ANS or Canvas
 
-```r
-library(exams)
+Instructions on how to use R exams to compile packages: [ShareStats R exams instructions](https://www.sharestats.nl/instructions/using-r-exams.html)
 
-# List the items you want
-my_items <- c(
-  "ttest_onesample.Rmd",
-  "descriptives_mean.Rmd",
-  "regression_interpret.Rmd"
-)
-
-# Render to QTI 2.1 format (for ANS)
-exams2qti21(
-  file      = my_items,
-  n         = 1,          # number of exam versions
-  dir       = "output",
-  name      = "stats_quiz"
-)
-```
-
-## Uploading to ANS
-
-Once you have the `.zip` QTI file:
+## Uploading to ANS {#upload}
 
 ::: {.incremental}
-1. Log in to **ANS** ([ans.app](https://ans.app))
-2. Open your course → **Item bank** → **Import**
-3. Choose **QTI 2.1** and upload the `.zip`
-4. ANS parses the items — preview and assign to an assignment
-5. Set feedback, scoring, and release settings as usual
+To get to the correct upload location in Ans, follow these steps:
+
+1.  **Log into your item bank** within Ans.
+2.  Select the **Settings/Instellingen** option.
+3.  Choose **QTI... upload** from the menu.
+4.  **Select the file** you wish to upload (such as a QTI file downloaded from ShareStats) from your computer.
+5.  View the imported item.
 :::
 
-::: {.callout-note}
-The same workflow applies to **Canvas** using `exams2canvas()` and QTI 1.2.
+## Uploading to Canvas {#sec-upload}
+
+To upload ShareStats items into **Canvas**, you can use one of the two following methods depending on the type of quiz you are using:
+
+:::: {.columns style="font-size: 0.5em;"}
+::: {.column width="50%"}
+
+### Method 1: For Classic Quizzes
+1.  Go to the **Import existing content** section in your Canvas course.
+2.  Select **QTI zip file** as the content type.
+3.  **Browse your computer** to select the file you downloaded from ShareStats.
+4.  Select an existing **item bank** or create a new one to house the question.
+5.  Click to add the file to the **import queue** to complete the process.
+
 :::
+::: {.column width="50%"}
 
-## Uploading to Canvas
+### Method 2: For New Quizzes
+1.  Create and save a **New Quiz** within your course.
+2.  Enter the **new quiz editor**.
+3.  Click the **Import content** option.
+4.  **Browse your computer**, select the ShareStats item, and click **Import**.
 
-For Canvas, export to QTI 1.2 instead:
+:::
+::::
 
-```r
-exams2canvas(
-  file  = my_items,
-  n     = 1,
-  dir   = "output",
-  name  = "stats_quiz"
-)
-```
-
-Then import via **Canvas → Settings → Import Course Content → QTI**.
-
-# Part 3 {background-color="#375E94"}
-## Your Turn — Hands-On Practice
+# Hands-On Practice {background-color="#375E94"}
 
 ## Your turn! {.center}
 
@@ -196,56 +178,18 @@ Let's try it together
 ::: {.incremental}
 1. Open **[sharestats.nl](https://www.sharestats.nl)** on your laptop
 2. Find **two items** on a topic relevant to your course
-3. Download the `.Rmd` files to a local folder
+3. Download the ANS or canvas packages to a local folder
 :::
-
-**Tip:** look at the item source — all items are plain R Markdown files.
 
 ## Exercise 2 — Compile a Mini Exam
 
-With the items you downloaded, compile a QTI file:
+> With the items you downloaded, compile your own package.
 
-```r
-library(exams)
-
-my_items <- c("item1.Rmd", "item2.Rmd")  # your downloaded items
-
-exams2qti21(
-  file = my_items,
-  n    = 1,
-  dir  = "output",
-  name = "my_quiz"
-)
-```
-
-Check the `output/` folder — you should see a `.zip` file ready to upload.
+Follow the instructions for using R/exams to create a QTI package: [ShareStats R exams instructions](https://www.sharestats.nl/instructions/using-r-exams.html)
 
 ## Exercise 3 — Upload to ANS or Canvas
 
-::: {.panel-tabset}
-
-### ANS
-1. Log in to ANS → your course
-2. **Item bank → Import → QTI 2.1**
-3. Upload the `.zip` from `output/`
-4. Preview one item
-
-### Canvas
-1. Log in to Canvas → your course
-2. **Settings → Import Course Content**
-3. Select **QTI** → upload the `.zip`
-4. Find the items in your **Question Banks**
-
-:::
-
-## Common questions
-
-| Issue | Solution |
-|---|---|
-| Item doesn't render | Check R version ≥ 4.0 and `tinytex` installed |
-| QTI import fails | Ensure you're using QTI **2.1** for ANS |
-| Images missing | Use `exams2qti21(..., edir = "images")` |
-| Reproducibility | Set `set.seed()` before `exams2qti21()` |
+Follow the instructions for uploading @sec-upload to get your items into your LMS.
 
 # Wrap-up {background-color="#375E94"}
 
@@ -288,4 +232,4 @@ Check the `output/` folder — you should see a `.zip` file ready to upload.
 Questions?
 :::
 
-[sharestats.nl](https://www.sharestats.nl) · [r-exams.org](https://www.r-exams.org)
+[sharestats.nl](https://www.sharestats.nl) · [r-exams.org](https://www.r-exams.org) · [LinkedIn](https://www.linkedin.com/groups/12464778/)
