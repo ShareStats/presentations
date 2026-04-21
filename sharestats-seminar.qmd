@@ -33,6 +33,13 @@ This session covers:
 This is a hands-on workshop — please have your laptop ready.
 :::
 
+## Find this presentation here
+
+![QR](images/qr_4t73p.png)
+
+
+
+
 # Introduction to ShareStats {background-color="#375E94"}
 
 ## What is ShareStats?
