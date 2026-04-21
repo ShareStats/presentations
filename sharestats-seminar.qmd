@@ -10,11 +10,13 @@ format:
     footer: "[sharestats.nl](https://www.sharestats.nl)"
     slide-number: true
     progress: true
+    controls: true
     theme: default
     transition: slide
     background-transition: fade
     code-line-numbers: false
     highlight-style: github
+
 ---
 
 # Welcome {background-color="#375E94"}
@@ -190,7 +192,7 @@ Let's try it together
 
 ## Exercise 2 — Compile a Mini Exam
 
-> With the items you downloaded, compile your own package.
+> Download the zip folder for 3 other items.
 
 Follow the instructions for using R/exams to create a QTI package: [ShareStats R exams instructions](https://www.sharestats.nl/instructions/using-r-exams.html)
 
